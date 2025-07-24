@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Content Marketing | ANY EVER</title>
+    <style>
+      /* ANY EVER Brand CSS Variablen - Direkt eingebettet */
+      :root {
+        /* ANY EVER Primärfarben */
+        --any-ever-gold: #c0ae66;
+        --any-ever-black: #000000;
+        --any-ever-dark-grey: #434343;
+        --any-ever-light-grey: #999999;
+        --any-ever-stone-grey: #c0c0c0;
+        --any-ever-bright-grey: #eeeeee;
+        --any-ever-white: #ffffff;
+        
+        /* Schriftarten */
+        --font-primary: 'Montserrat', system-ui, -apple-system, sans-serif;
+        --font-secondary: 'Montserrat', system-ui, -apple-system, sans-serif;
+        
+        /* ChatGPT-style ultra-elegante Schriftgewichte */
+        --font-weight-bold: 200;
+        --font-weight-medium: 300;
+        --font-weight-normal: 200;
+        --font-weight-light: 100;
+        
+        /* Letter-spacing */
+        --letter-spacing-ultra: 12px;
+        --letter-spacing-wide: 8px;
+        --letter-spacing-medium: 4px;
+        --letter-spacing-normal: 2px;
+        
+        /* Layout-Farben */
+        --background-main: #eeeeee;
+        --background-content: #ffffff;
+        --border-light: #c0c0c0;
+        --border-medium: #999999;
+        
+        /* Schatten und Effekte */
+        --gradient-gold: linear-gradient(135deg, var(--any-ever-gold) 0%, #a58f4a 100%);
+        --shadow-gold: 0 10px 25px -5px rgba(192, 174, 102, 0.4);
+        --focus-gold: 0 0 0 3px rgba(192, 174, 102, 0.1);
+      }
+
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: var(--font-primary);
+        line-height: 1.6;
+        color: var(--any-ever-black);
+        background: var(--background-main);
+        padding: 24px;
+        font-weight: var(--font-weight-normal);
+        min-height: 100vh;
+      }
+      
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--background-content);
+        box-shadow: var(--shadow-gold);
+        border-radius: 16px;
+        margin-bottom: 30px;
+      }
+      
+      .header {
+        background: var(--background-content);
+        padding: 40px 40px 30px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px 16px 0 0;
+        border-bottom: 2px solid var(--any-ever-gold);
+      }
+      
+      .request-counter {
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        font-size: 14px;
+        color: var(--any-ever-light-grey);
+        background: var(--any-ever-bright-grey);
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: 1px solid var(--border-light);
+        z-index: 10;
+        font-family: var(--font-primary);
+        font-weight: var(--font-weight-medium);
+      }
+      
+      .back-button {
+        position: absolute;
+        top: 20px;
+        right: 30px;
+        background: var(--any-ever-bright-grey);
+        border: 1px solid var(--border-light);
+        color: var(--any-ever-black);
+        padding: 8px 16px;
+        border-radius: 20px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: var(--font-weight-medium);
+        transition: all 0.3s ease;
+        z-index: 10;
+        font-family: var(--font-primary);
+      }
+      
+      .back-button:hover {
+        background: var(--any-ever-stone-grey);
+        border-color: var(--border-medium);
+        transform: translateY(-1px);
+      }
+      
+      .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      
+      .logo-anyever {
+        width: 200px;
+        height: auto;
+        margin-bottom: 10px;
+        opacity: 0.95;
+      }
+      
+      .enjoy-audio {
+        font-size: 14px;
+        font-weight: var(--font-weight-medium);
+        letter-spacing: var(--letter-spacing-medium);
+        color: var(--any-ever-black);
+        text-transform: uppercase;
+        margin-top: 5px;
+        font-family: var(--font-primary);
+      }
+      
+      .header h1 {
+        font-size: 32px;
+        margin-bottom: 15px;
+        font-weight: var(--font-weight-bold);
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-wide);
+        color: var(--any-ever-black);
+        font-family: var(--font-primary);
+      }
+      
+      .form-content {
+        padding: 40px;
+        background: var(--background-content);
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      label {
+        display: block;
+        font-weight: var(--font-weight-medium);
+        color: var(--any-ever-black);
+        margin-bottom: 8px;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-medium);
+        font-family: var(--font-primary);
+      }
+      
+      input[type="text"], 
+      input[type="url"], 
+      textarea {
+        width: 100%;
+        padding: 15px 20px;
+        border: 2px solid var(--border-light);
+        border-radius: 8px;
+        font-size: 16px;
+        background: var(--background-content);
+        color: var(--any-ever-black);
+        transition: all 0.3s ease;
+        font-family: var(--font-primary);
+        font-weight: var(--font-weight-normal);
+        resize: vertical;
+      }
+      
+      input[type="text"]:focus, 
+      input[type="url"]:focus, 
+      textarea:focus {
+        outline: none;
+        border-color: var(--any-ever-gold);
+        background: var(--any-ever-white);
+        box-shadow: var(--focus-gold);
+      }
+      
+      textarea.auto-resize {
+        min-height: 80px;
+        resize: vertical;
+      }
+
+      /* Content Type Selection Styles */
+      .content-type-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+        margin-bottom: 25px;
+      }
+
+      .content-type-card {
+        border: 2px solid var(--border-light);
+        border-radius: 12px;
+        padding: 20px;
+        transition: all 0.3s ease;
+        background: var(--background-content);
+        cursor: pointer;
+        position: relative;
+      }
+
+      .content-type-card:hover {
+        border-color: var(--any-ever-gold);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px -8px rgba(192, 174, 102, 0.3);
+      }
+
+      .content-type-card label {
+        cursor: pointer;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        text-transform: none;
+        letter-spacing: normal;
+        margin-bottom: 0;
+      }
+
+      .content-type-card input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--any-ever-gold);
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+
+      .content-type-card.selected {
+        border-color: var(--any-ever-gold);
+        background: rgba(192, 174, 102, 0.05);
+        box-shadow: var(--focus-gold);
+      }
+
+      .format-badge {
+        display: inline-block;
+        background: var(--any-ever-bright-grey);
+        color: var(--any-ever-dark-grey);
+        font-size: 10px;
+        padding: 4px 8px;
+        border-radius: 12px;
+        margin-top: 8px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .section-separator {
+        margin: 35px 0 25px 0;
+      }
+
+      .section-separator h3 {
+        font-size: 16px;
+        font-weight: var(--font-weight-medium);
+        color: var(--any-ever-black);
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-medium);
+        font-family: var(--font-primary);
+      }
+
+      /* Bildauswahl System */
+      .image-selection-container {
+        margin-top: 30px;
+        padding: 25px;
+        background: var(--any-ever-bright-grey);
+        border-radius: 12px;
+        border: 2px solid var(--border-light);
+        display: none; /* Initially hidden */
+      }
+
+      .image-selection-container.show {
+        display: block;
+        animation: fadeIn 0.3s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .image-selection-title {
+        font-size: 18px;
+        font-weight: var(--font-weight-medium);
+        color: var(--any-ever-black);
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-medium);
+        font-family: var(--font-primary);
+      }
+
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .image-option {
+        position: relative;
+        border: 3px solid var(--border-light);
+        border-radius: 12px;
+        overflow: hidden;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: var(--background-content);
+      }
+
+      .image-option:hover {
+        border-color: var(--any-ever-gold);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px -8px rgba(192, 174, 102, 0.4);
+      }
+
+      .image-option.selected {
+        border-color: var(--any-ever-gold);
+        box-shadow: var(--shadow-gold);
+      }
+
+      .image-option img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .image-option-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0,0,0,0.8));
+        color: white;
+        padding: 15px 12px 12px;
+        font-size: 14px;
+        font-weight: var(--font-weight-medium);
+        text-align: center;
+      }
+
+      .image-option input[type="radio"] {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 20px;
+        height: 20px;
+        accent-color: var(--any-ever-gold);
+        z-index: 2;
+      }
+
+      /* Submit Button */
+      .submit-section {
+        margin-top: 40px;
+        text-align: center;
+        padding: 30px 40px;
+        background: var(--background-content);
+        border-radius: 0 0 16px 16px;
+      }
+
+      .submit-btn {
+        background: var(--gradient-gold);
+        color: var(--any-ever-white);
+        border: none;
+        padding: 18px 40px;
+        font-size: 16px;
+        font-weight: var(--font-weight-medium);
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: var(--letter-spacing-normal);
+        font-family: var(--font-primary);
+        box-shadow: var(--shadow-gold);
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 15px 35px -10px rgba(192, 174, 102, 0.5);
+      }
+
+      .submit-btn:disabled {
+        background: var(--any-ever-stone-grey);
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+      }
+
+      .loading-spinner {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid transparent;
+        border-top: 2px solid currentColor;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-right: 8px;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+
+      /* Coming Soon Styling */
+      .content-type-card.coming-soon {
+        background: var(--background-content);
+        border: 2px dashed #d1d5db;
+        cursor: not-allowed;
+        opacity: 0.7;
+        position: relative;
+      }
+
+      .content-type-card.coming-soon:hover {
+        border-color: rgba(192, 174, 102, 0.4);
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(192, 174, 102, 0.08);
+        opacity: 0.8;
+      }
+
+      .content-type-card.coming-soon.selected {
+        border: 2px dashed var(--any-ever-gold);
+        background: #fafafa;
+        box-shadow: 0 0 0 2px rgba(192, 174, 102, 0.1);
+        transform: translateY(-1px);
+        opacity: 0.8;
+      }
+
+      .content-type-card.coming-soon label {
+        color: #6b7280;
+        cursor: not-allowed;
+      }
+
+      .content-type-card.coming-soon .format-badge {
+        background: #9ca3af;
+        color: var(--any-ever-white);
+      }
+
+      .coming-soon-badge {
+        display: inline-block;
+        background: #9ca3af;
+        color: var(--any-ever-white);
+        padding: 3px 10px;
+        border-radius: 10px;
+        font-size: 10px;
+        margin-top: 5px;
+        font-weight: var(--font-weight-medium);
+        font-family: var(--font-primary);
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        box-shadow: 0 2px 4px rgba(156, 163, 175, 0.2);
+      }
+
+      /* Status Messages */
+      .status-container {
+        margin: 20px 0;
+        min-height: 50px;
+      }
+
+      .status-message {
+        padding: 15px 20px;
+        border-radius: 8px;
+        margin: 10px 0;
+        font-weight: var(--font-weight-medium);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .status-message.success {
+        background: #d1fae5;
+        color: #065f46;
+        border: 1px solid #a7f3d0;
+      }
+
+      .status-message.error {
+        background: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #fca5a5;
+      }
+
+      .status-message.info {
+        background: #dbeafe;
+        color: #1e40af;
+        border: 1px solid #93c5fd;
+      }
+
+      .status-message.warning {
+        background: #fef3c7;
+        color: #92400e;
+        border: 1px solid #fcd34d;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        body {
+          padding: 12px;
+        }
+        
+        .container {
+          margin-bottom: 20px;
+        }
+        
+        .header {
+          padding: 30px 20px 25px;
+        }
+        
+        .request-counter,
+        .back-button {
+          position: static;
+          display: inline-block;
+          margin: 10px 5px;
+        }
+        
+        .form-content {
+          padding: 25px 20px;
+        }
+        
+        .content-type-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        
+        .image-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+        
+        .submit-section {
+          padding: 25px 20px;
+        }
+        
+        .header h1 {
+          font-size: 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="request-counter">
+          <span id="request-count">0</span>/20
+        </div>
+        <a href="index.html" class="back-button">← ANY EVER Studio</a>
+        <div class="header-content">
+          <div class="logo-container">
+            <a href="index.html">
+              <img src="https://anyever.de/wp-content/themes/anyever/static/images/logo-anyever-gold.svg" alt="Any Ever Logo" class="logo-anyever" />
+            </a>
+            <div class="enjoy-audio">ENJOY.AUDIO</div>
+          </div>
+          <h1>Content Marketing</h1>
+        </div>
+      </div>
+
+      <div class="form-content">
+        <div class="form-group">
+          <label for="thema">Thema (Pflichtfeld)</label>
+          <textarea id="thema" class="auto-resize" placeholder="Beschreiben Sie Ihr Thema" required rows="2" oninput="autoResize(this)"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="subline">Subline (optional)</label>
+          <textarea id="subline" class="auto-resize" placeholder="Zusätzliche Informationen oder Untertitel" rows="2" oninput="autoResize(this)"></textarea>
+        </div>
+
+        <!-- Enhanced Content Type Selection -->
+        <div class="form-group">
+          <label>Content-Kanäle auswählen (mindestens einen)</label>
+          
+          <!-- Business Content Section -->
+          <div class="section-separator">
+            <h3>Business Content</h3>
+            <div class="content-type-grid">
+              <!-- Newsletter -->
+              <div class="content-type-card" id="card-newsletter">
+                <label>
+                  <input type="checkbox" id="enable_newsletter" class="content-checkbox" />
+                  <div>
+                    <div style="font-weight: 600;">Newsletter</div>
+                    <div style="font-size: 12px; color: #6b7280;">E-Mail Marketing</div>
+                    <span class="format-badge">E-Mail</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Blog -->
+              <div class="content-type-card" id="card-blog">
+                <label>
+                  <input type="checkbox" id="enable_blog" class="content-checkbox" />
+                  <div>
+                    <div style="font-weight: 600;">Blog Artikel</div>
+                    <div style="font-size: 12px; color: #6b7280;">Langform Content</div>
+                    <span class="format-badge">16:9</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media Section -->
+          <div class="section-separator">
+            <h3>Social Media</h3>
+            
+            <!-- Erste Reihe: LinkedIn und Facebook -->
+            <div class="content-type-grid" style="grid-template-columns: repeat(2, 1fr); margin-bottom: 15px;">
+              <!-- LinkedIn -->
+              <div class="content-type-card" id="card-linkedin">
+                <label>
+                  <input type="checkbox" id="enable_linkedin" class="content-checkbox" />
+                  <div>
+                    <div style="font-weight: 600;">LinkedIn Post</div>
+                    <div style="font-size: 12px; color: #6b7280;">Business Content</div>
+                    <span class="format-badge">1:1</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Facebook -->
+              <div class="content-type-card" id="card-facebook">
+                <label>
+                  <input type="checkbox" id="enable_facebook" class="content-checkbox" />
+                  <div>
+                    <div style="font-weight: 600;">Facebook Post</div>
+                    <div style="font-size: 12px; color: #6b7280;">Social Media</div>
+                    <span class="format-badge">1:1</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+
+            <!-- Zweite Reihe: Alle Instagram Kanäle -->
+            <div class="content-type-grid" style="grid-template-columns: repeat(3, 1fr);">
+              <!-- Instagram Feed -->
+              <div class="content-type-card" id="card-instagram_feed">
+                <label>
+                  <input type="checkbox" id="enable_instagram_feed" class="content-checkbox" />
+                  <div>
+                    <div style="font-weight: 600;">Instagram Feed</div>
+                    <div style="font-size: 12px; color: #6b7280;">Quadratisch</div>
+                    <span class="format-badge">1:1</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Instagram Story -->
+              <div class="content-type-card" id="card-instagram_story">
+                <label>
+                  <input type="checkbox" id="enable_instagram_story" class="content-checkbox" />
+                  <div>
+                    <div style="font-weight: 600;">Instagram Story</div>
+                    <div style="font-size: 12px; color: #6b7280;">Hochformat</div>
+                    <span class="format-badge">9:16</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Instagram Reel -->
+              <div class="content-type-card" id="card-instagram_reel">
+                <label>
+                  <input type="checkbox" id="enable_instagram_reel" class="content-checkbox" />
+                  <div>
+                    <div style="font-weight: 600;">Instagram Reel</div>
+                    <div style="font-size: 12px; color: #6b7280;">Video Content</div>
+                    <span class="format-badge">9:16 Video</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sonderformate Section -->
+          <div class="section-separator">
+            <h3>Sonderformate</h3>
+            <div class="content-type-grid">
+              <!-- Podcast -->
+              <div class="content-type-card" id="card-podcast">
+                <label>
+                  <input type="checkbox" id="enable_podcast" class="content-checkbox" />
+                  <div>
+                    <div style="font-weight: 600;">Audio-Podcast</div>
+                    <div style="font-size: 12px; color: #6b7280;">Audio Content</div>
+                    <span class="format-badge">Text-to-Speech</span>
+                  </div>
+                </label>
+              </div>
+
+              <!-- Avatar -->
+              <div class="content-type-card" id="card-avatar">
+                <label>
+                  <input type="checkbox" id="enable_avatar" class="content-checkbox" />
+                  <div>
+                    <div style="font-weight: 600;">Avatar Video</div>
+                    <div style="font-size: 12px; color: #6b7280;">KI-generiert</div>
+                    <span class="format-badge">Kommt bald</span>
+                  </div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bildauswahl Container - wird NUR im Review-Bereich angezeigt, NACH der Generierung -->
+        <div class="image-selection-container" id="image-selection-container" style="display: none;">
+          <div class="image-selection-title">🖼️ Bildauswahl für Social Media</div>
+          <p style="color: var(--any-ever-light-grey); margin-bottom: 15px;">Die DALL-E Bilder werden zusammen mit Ihren Texten generiert. Die Bildauswahl erfolgt im Review-Bereich.</p>
+        </div>
+
+        <!-- Status Container -->
+        <div class="status-container" id="status-container"></div>
+
+        <!-- Submit Button -->
+        <div class="submit-section">
+          <button type="button" onclick="submitForm()" class="submit-btn" id="submit-btn">
+            Inhalt übermitteln
+          </button>
+          <p style="margin-top: 15px; color: var(--any-ever-light-grey); font-size: 14px;">
+            Ihr Content wird automatisch generiert und kann anschließend überprüft werden.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ========================================
+      // GLOBALE VARIABLEN & KONFIGURATION
+      // ========================================
+      
+      let requestCount = parseInt(localStorage.getItem('dailyRequestCount') || '0');
+      let lastRequestDate = localStorage.getItem('lastRequestDate');
+      const today = new Date().toDateString();
+      
+      // Reset counter if it's a new day
+      if (lastRequestDate !== today) {
+        requestCount = 0;
+        localStorage.setItem('dailyRequestCount', '0');
+        localStorage.setItem('lastRequestDate', today);
+      }
+      
+      // Update counter display
+      document.getElementById('request-count').textContent = requestCount;
+
+      // === CHANNEL CONFIG ===
+      // Hier einfach true/false ändern um Kanäle zu aktivieren/deaktivieren
+      const CHANNEL_CONFIG = {
+        linkedin: true,
+        facebook: true,
+        instagram_feed: true,
+        instagram_story: false,    
+        instagram_reel: false,    
+        newsletter: false,
+        blog: false,
+        podcast: true,
+        avatar: false,            
+      };
+      // === ENDE CONFIG ===
+      
+      // Content Type Configuration
+      const CONTENT_TYPES = {
+        linkedin: { 
+          id: 'linkedin', 
+          label: 'LinkedIn Post', 
+          textField: 'linkedin_text', 
+          statusField: 'linkedin_status',
+          enableField: 'enable_linkedin',
+          backendTextKey: 'linkedin_text',      
+          backendStatusKey: 'linkedin_status',
+          postingEnabled: true,
+          imageFormat: '1:1'
+        },
+        facebook: { 
+          id: 'facebook', 
+          label: 'Facebook Post', 
+          textField: 'facebook_text', 
+          statusField: 'facebook_status',
+          enableField: 'enable_facebook',
+          backendTextKey: 'facebook_text',      
+          backendStatusKey: 'facebook_status',
+          postingEnabled: true,
+          imageFormat: '1:1'
+        },
+        instagram_feed: { 
+          id: 'instagram_feed', 
+          label: 'Instagram Feed', 
+          textField: 'instagram_feed_text', 
+          statusField: 'instagram_feed_status',
+          enableField: 'enable_instagram_feed',
+          backendTextKey: 'insta_feed_text',    
+          backendStatusKey: 'insta_feed_status',
+          postingEnabled: false,
+          imageFormat: '1:1'
+        },
+        instagram_reel: { 
+          id: 'instagram_reel', 
+          label: 'Instagram Reel', 
+          textField: 'instagram_reel_text', 
+          statusField: 'instagram_reel_status',
+          enableField: 'enable_instagram_reel',
+          backendTextKey: 'insta_reel_text',    
+          backendStatusKey: 'insta_reel_status',
+          postingEnabled: false,
+          imageFormat: '9:16 Video'
+        },
+        instagram_story: { 
+          id: 'instagram_story', 
+          label: 'Instagram Story', 
+          textField: 'instagram_story_text', 
+          statusField: 'instagram_story_status',
+          enableField: 'enable_instagram_story',
+          backendTextKey: 'insta_story_text',    
+          backendStatusKey: 'insta_story_status',
+          postingEnabled: false,
+          imageFormat: '9:16'
+        },
+        blog: { 
+          id: 'blog', 
+          label: 'Blog Artikel', 
+          textField: 'blog_text', 
+          statusField: 'blog_status',
+          enableField: 'enable_blog',
+          backendTextKey: 'blog_text',          
+          backendStatusKey: 'blog_status',
+          postingEnabled: false,
+          imageFormat: '16:9'
+        },
+        podcast: {
+          id: 'podcast',
+          label: 'Podcast Skript',
+          textField: 'podcast_text',
+          statusField: 'podcast_status', 
+          enableField: 'enable_podcast',
+          backendTextKey: 'podcast_text',       
+          backendStatusKey: 'podcast_status',
+          postingEnabled: true,
+          imageFormat: 'Text-to-Speech'
+        },
+        avatar: {
+          id: 'avatar',
+          label: 'Avatar Skript',
+          textField: 'avatar_text',
+          statusField: 'avatar_status',
+          enableField: 'enable_avatar', 
+          backendTextKey: 'avatar_text',        
+          backendStatusKey: 'avatar_status',
+          postingEnabled: false,
+          imageFormat: 'Kommt bald'
+        },
+        newsletter: {
+          id: 'newsletter',
+          label: 'Newsletter',
+          textField: 'newsletter_text',
+          statusField: 'newsletter_status',
+          enableField: 'enable_newsletter', 
+          backendTextKey: 'newsletter_text',        
+          backendStatusKey: 'newsletter_status',
+          postingEnabled: true,
+          imageFormat: 'E-Mail'
+        }
+      };
+
+      // ========================================
+      // CHANNEL CONFIG ANWENDEN
+      // ========================================
+      
+      function applyChannelConfig() {
+        Object.keys(CHANNEL_CONFIG).forEach(channel => {
+          const card = document.getElementById(`card-${channel}`);
+          const checkbox = document.getElementById(`enable_${channel}`);
+          
+          if (card && !CHANNEL_CONFIG[channel]) {
+            card.classList.add('coming-soon');
+            
+            if (checkbox) {
+              checkbox.disabled = true;
+              checkbox.checked = false;
+            }
+            
+            if (!card.querySelector('.coming-soon-badge')) {
+              const badge = document.createElement('div');
+              badge.className = 'coming-soon-badge';
+              badge.textContent = 'Coming soon';
+              card.querySelector('label > div').appendChild(badge);
+            }
+          }
+        });
+      }
+
+      // ========================================
+      // AUTO-RESIZE TEXTAREA FUNKTION
+      // ========================================
+      
+      function autoResize(textarea) {
+        textarea.style.height = 'auto';
+        textarea.style.height = textarea.scrollHeight + 'px';
+      }
+
+      // ========================================
+      // CONTENT TYPE SELECTION LOGIC
+      // ========================================
+      
+      // Social Media Kanäle die Bilder benötigen
+      const SOCIAL_MEDIA_CHANNELS = ['linkedin', 'facebook', 'instagram_feed', 'instagram_story', 'instagram_reel'];
+      
+      function setupContentTypeSelection() {
+        const checkboxes = document.querySelectorAll('.content-checkbox');
+        const imageContainer = document.getElementById('image-selection-container');
+        
+        checkboxes.forEach(checkbox => {
+          checkbox.addEventListener('change', function() {
+            const card = this.closest('.content-type-card');
+            
+            // Toggle selected state
+            if (this.checked) {
+              card.classList.add('selected');
+            } else {
+              card.classList.remove('selected');
+            }
+            
+            // Check if any social media channel is selected
+            updateImageSelectionVisibility();
+          });
+        });
+        
+        // Image selection event handlers
+        setupImageSelection();
+      }
+      
+      function updateImageSelectionVisibility() {
+        // Bildauswahl wird NICHT mehr vor der Generierung angezeigt
+        // Sie erfolgt später im Review-Process nach der Content-Generierung
+        const imageContainer = document.getElementById('image-selection-container');
+        imageContainer.style.display = 'none';
+      }
+      
+      function setupImageSelection() {
+        const imageOptions = document.querySelectorAll('.image-option');
+        
+        imageOptions.forEach(option => {
+          option.addEventListener('click', function() {
+            // Remove selected class from all options
+            imageOptions.forEach(opt => opt.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            this.classList.add('selected');
+            
+            // Check the radio button
+            const radio = this.querySelector('input[type="radio"]');
+            if (radio) {
+              radio.checked = true;
+            }
+          });
+        });
+      }
+
+      // ========================================
+      // STATUS MESSAGE SYSTEM
+      // ========================================
+      
+      function showStatusMessage(message, type = 'info', persistent = false) {
+        const container = document.getElementById('status-container');
+        
+        // Remove existing non-persistent messages
+        if (!persistent) {
+          const existing = container.querySelector('.status-message:not(.persistent)');
+          if (existing) existing.remove();
+        } else {
+          // Remove any existing persistent message
+          const existing = container.querySelector('.status-message.persistent');
+          if (existing) existing.remove();
+        }
+        
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `status-message ${type}${persistent ? ' persistent' : ''}`;
+        messageDiv.innerHTML = message;
+        
+        container.appendChild(messageDiv);
+        
+        // Auto-remove non-persistent messages after 5 seconds
+        if (!persistent) {
+          setTimeout(() => {
+            if (messageDiv.parentNode) {
+              messageDiv.remove();
+            }
+          }, 5000);
+        }
+      }
+      
+      function showSuccessMessage(message) {
+        showStatusMessage(message, 'success');
+      }
+      
+      function showErrorMessage(message) {
+        showStatusMessage(message, 'error');
+      }
+      
+      function showInfoMessage(message, persistent = false) {
+        showStatusMessage(message, 'info', persistent);
+      }
+      
+      function showWarningMessage(message) {
+        showStatusMessage(message, 'warning');
+      }
+      
+      function clearPersistentMessage() {
+        const container = document.getElementById('status-container');
+        const existing = container.querySelector('.status-message.persistent');
+        if (existing) existing.remove();
+      }
+
+      // ========================================
+      // FORM VALIDATION
+      // ========================================
+      
+      function validateForm() {
+        const thema = document.getElementById('thema').value.trim();
+        if (!thema) {
+          showErrorMessage('Bitte geben Sie ein Thema ein.');
+          return false;
+        }
+        
+        // Check if at least one content type is selected
+        const checkboxes = document.querySelectorAll('.content-checkbox:checked');
+        if (checkboxes.length === 0) {
+          showErrorMessage('Bitte wählen Sie mindestens einen Content-Kanal aus.');
+          return false;
+        }
+        
+        // Bildauswahl wird NACH der Generierung gemacht, nicht vorher!
+        
+        return true;
+      }
+
+      // ========================================
+      // FORM SUBMISSION
+      // ========================================
+      
+      function showLoadingState(isLoading) {
+        const button = document.getElementById('submit-btn');
+        if (isLoading) {
+          button.disabled = true;
+          button.innerHTML = '<div class="loading-spinner"></div>Wird verarbeitet...';
+        } else {
+          button.disabled = false;
+          button.innerHTML = 'Inhalt übermitteln';
+        }
+      }
+      
+      async function submitForm() {
+        if (!validateForm()) return;
+        
+        // Check rate limit
+        if (requestCount >= 20) {
+          showErrorMessage('Tageslimit von 20 Anfragen erreicht. Versuchen Sie es morgen erneut.');
+          return;
+        }
+        
+        showLoadingState(true);
+        
+        try {
+          // Prepare form data
+          const formData = {
+            mode: "generate",
+            thema: document.getElementById('thema').value.trim(),
+            subline: document.getElementById('subline').value.trim(),
+            timestamp: new Date().toISOString(),
+            input_id: generateInputId()
+          };
+          
+          // Add selected content types
+          const checkboxes = document.querySelectorAll('.content-checkbox:checked');
+          checkboxes.forEach(checkbox => {
+            const channelName = checkbox.id.replace('enable_', '');
+            formData[`enable_${channelName}`] = true;
+          });
+          
+          // Bildauswahl erfolgt später im Review-Process!
+          
+          // Store input_id for later use
+          localStorage.setItem('current_input_id', formData.input_id);
+          
+          console.log('Sending form data:', formData);
+          
+          // Send to Make.com webhook
+          const webhookUrl = "https://hook.eu2.make.com/hw1siz7ad14nfv7tr4y0cte3l2rtkwxm";
+          const response = await fetch(webhookUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+          });
+          
+          if (response.ok) {
+            // Update request count
+            requestCount++;
+            localStorage.setItem('dailyRequestCount', requestCount.toString());
+            document.getElementById('request-count').textContent = requestCount;
+            
+            showSuccessMessage('✅ Ihre Anfrage wurde übermittelt! Der Content wird nun generiert...');
+            
+            // Start polling for results
+            startPollingForResults(formData.input_id);
+            
+          } else {
+            throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+          }
+          
+        } catch (error) {
+          console.error('Submission error:', error);
+          showErrorMessage(`Fehler beim Übermitteln: ${error.message}`);
+        } finally {
+          showLoadingState(false);
+        }
+      }
+      
+      function generateInputId() {
+        return 'content_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+      }
+
+      // ========================================
+      // POLLING SYSTEM FÜR ERGEBNISSE
+      // ========================================
+      
+      async function startPollingForResults(inputId) {
+        let attempts = 0;
+        const maxAttempts = 24; // 6 Minuten maximum
+        
+        showInfoMessage('🔄 Content wird generiert... Dies kann bis zu 6 Minuten dauern.', true);
+        
+        const poll = async () => {
+          attempts++;
+          console.log(`Polling attempt ${attempts}/${maxAttempts} for input_id: ${inputId}`);
+          
+          try {
+            const webhookUrl = `https://hook.eu2.make.com/hw1siz7ad14nfv7tr4y0cte3l2rtkwxm?mode=load&input_id=${inputId}`;
+            const response = await fetch(webhookUrl);
+            
+            if (!response.ok) {
+              throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            
+            const data = await response.json();
+            console.log('Polling response:', data);
+            
+            // Check if content is ready
+            if (hasContentReady(data)) {
+              clearPersistentMessage();
+              showSuccessMessage('✅ Content ist fertig! Sie werden zum Review-Interface weitergeleitet...');
+              
+              // Redirect to review page with input_id
+              setTimeout(() => {
+                window.location.href = `content-review.html?input_id=${inputId}`;
+              }, 2000);
+              
+              return; // Stop polling
+            }
+            
+            // Continue polling if not ready and haven't exceeded max attempts
+            if (attempts < maxAttempts) {
+              setTimeout(poll, 15000); // Wait 15 seconds before next attempt
+            } else {
+              clearPersistentMessage();
+              showWarningMessage('⏱️ Die Generierung dauert länger als üblich. Bitte überprüfen Sie den Status manuell.');
+            }
+            
+          } catch (error) {
+            console.error('Polling error:', error);
+            if (attempts < maxAttempts) {
+              setTimeout(poll, 15000); // Retry on error
+            } else {
+              clearPersistentMessage();
+              showErrorMessage('❌ Fehler beim Abrufen des Status. Bitte versuchen Sie es später erneut.');
+            }
+          }
+        };
+        
+        // Start first poll after 30 seconds
+        setTimeout(poll, 30000);
+      }
+      
+      function hasContentReady(data) {
+        // Check if at least some content fields are present and not empty
+        const contentFields = [
+          'linkedin_text', 'facebook_text', 'instagram_feed_text', 
+          'instagram_story_text', 'instagram_reel_text', 'blog_text', 
+          'podcast_text', 'avatar_text', 'newsletter_text'
+        ];
+        
+        return contentFields.some(field => {
+          const value = data[field];
+          return value && value.trim() !== '';
+        });
+      }
+
+      // ========================================
+      // DALL-E BILD SYSTEM (für zukünftige Integration)
+      // ========================================
+      
+      function loadDalleImages(imageUrls) {
+        const imageGrid = document.getElementById('image-grid');
+        const imageOptions = imageGrid.querySelectorAll('.image-option img');
+        
+        imageUrls.forEach((url, index) => {
+          if (imageOptions[index]) {
+            imageOptions[index].src = url;
+            imageOptions[index].style.display = 'block';
+          }
+        });
+        
+        // Show image selection if social media channels are selected
+        updateImageSelectionVisibility();
+      }
+
+      // ========================================
+      // INITIALIZATION
+      // ========================================
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('Content Marketing Tool initialized');
+        
+        // Kacheln basierend auf Config deaktivieren
+        applyChannelConfig();
+        
+        // Setup content type selection
+        setupContentTypeSelection();
+        
+        // Setup auto-resize for existing textareas
+        document.querySelectorAll('textarea.auto-resize').forEach(textarea => {
+          autoResize(textarea);
+        });
+        
+        // Show welcome message
+        showInfoMessage('💡 Wählen Sie Ihre gewünschten Content-Kanäle aus und beschreiben Sie Ihr Thema.');
+      });
+
+      // ========================================
+      // UTILITY FUNCTIONS
+      // ========================================
+      
+      function escapeJsonString(str) {
+        return str
+          .replace(/\\/g, '\\\\')
+          .replace(/"/g, '\\"')
+          .replace(/\n/g, '\\n')
+          .replace(/\r/g, '\\r')
+          .replace(/\t/g, '\\t');
+      }
+      
+      // Base64 encoding/decoding für UTF-8 Kompatibilität
+      function encodeBase64Text(text) {
+        return btoa(unescape(encodeURIComponent(text)));
+      }
+      
+      function decodeBase64Text(base64) {
+        try {
+          return decodeURIComponent(escape(atob(base64)));
+        } catch (e) {
+          console.warn('Base64 decode failed, returning original:', e);
+          return base64;
+        }
+      }
+    </script>
+  </body>
+</html>
